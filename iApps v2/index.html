@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<title>iDES Apps Hub | Daplian Elementary School</title>
+<link rel="icon" type="image/png" href="assets/des-iapps-icon.png">
+<link rel="apple-touch-icon" href="assets/des-iapps-icon.png">
+<style>
+:root{--navy:#102a43;--paper:#f4f7fb;--muted:#60758a;--line:#dce5ee}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Segoe UI",Arial,sans-serif;color:var(--navy)}
+body{background:radial-gradient(circle at 8% 0%,rgba(66,153,225,.13),transparent 28rem),radial-gradient(circle at 100% 100%,rgba(34,197,94,.10),transparent 30rem),var(--paper)}
+.shell{min-height:100vh;display:flex;flex-direction:column}
+header{background:linear-gradient(120deg,#102a43,#19486a);color:#fff;padding:25px clamp(18px,4vw,54px);box-shadow:0 8px 24px #102a4326}
+.header-inner{max-width:1400px;margin:auto;display:flex;align-items:center;gap:20px}
+.school-logo{width:82px;height:82px;flex:0 0 82px;object-fit:contain;background:white;border-radius:50%;padding:5px;border:3px solid #ffffff80;box-shadow:0 5px 14px #0003}
+.eyebrow{margin:0 0 5px;font-size:12px;letter-spacing:.19em;text-transform:uppercase;color:#b9d9ee;font-weight:800}
+h1{margin:0;font-size:clamp(27px,3vw,42px);line-height:1.08;letter-spacing:-.035em}
+.subtitle{margin:8px 0 0;color:#e0edf6;font-size:15px}
+main{width:min(1400px,100%);margin:0 auto;padding:30px clamp(18px,4vw,54px) 36px;flex:1}
+.intro{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+.intro h2{margin:0;font-size:clamp(22px,2.2vw,29px);letter-spacing:-.025em}.intro p{margin:7px 0 0;color:var(--muted)}
+.kiosk{display:inline-flex;align-items:center;gap:8px;border:1px solid #cddbe8;background:#fff;border-radius:999px;padding:9px 13px;color:#35536c;font-size:12px;font-weight:800;white-space:nowrap}
+.dot{width:8px;height:8px;background:#22a06b;border-radius:50%;box-shadow:0 0 0 4px #e1f5e9}
+.section{margin:28px 0 14px;display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#60758a;font-weight:900}
+.section:after{content:"";height:1px;flex:1;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{--accent:#2563eb;display:flex;flex-direction:column;min-height:232px;padding:21px;background:#fffffff2;border:1px solid #e0e8f0;border-top:5px solid var(--accent);border-radius:19px;box-shadow:0 5px 18px #102a430e;transition:transform .16s,box-shadow .16s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #102a431f}
+.top{display:flex;align-items:start;gap:15px}.logo-wrap{width:76px;height:76px;flex:0 0 76px;display:grid;place-items:center;background:#fff;border:1px solid #e6edf3;border-radius:16px;overflow:hidden}
+.app-logo{width:100%;height:100%;object-fit:contain}.placeholder{font-size:29px;font-weight:900;color:var(--accent)}
+.name{margin:2px 0 5px;font-size:23px;font-weight:900;letter-spacing:-.03em}.desc{margin:0;font-size:13px;line-height:1.45;color:var(--muted)}
+.status{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#52697d}
+.status:before{content:"";width:7px;height:7px;border-radius:50%;background:#aab8c5}.ready:before{background:#16a36a}.building:before{background:#e09b21}
+.bottom{margin-top:auto;padding-top:17px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.open{border:0;border-radius:10px;padding:12px 16px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:125px}
+.open:hover{filter:brightness(.94)}.open:focus-visible{outline:3px solid #0b84ff;outline-offset:3px}
+.disabled{background:#e8edf2;color:#718294;cursor:not-allowed}.meta{color:#73879a;font-size:12px}
+.note{margin-top:25px;padding:16px 19px;background:#eaf2f8;border:1px solid #d8e5ef;border-radius:14px;color:#3c5a72;font-size:13px;line-height:1.5}
+footer{border-top:1px solid var(--line);padding:17px 20px;text-align:center;color:#718294;font-size:12px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.header-inner{gap:13px}.school-logo{width:60px;height:60px;flex-basis:60px}.subtitle{font-size:13px}.intro{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.card{min-height:205px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+
+/* DES iApps welcome/loading screen */
+#splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 30%,#24577d 0%,#102a43 60%,#081a2b 100%);color:#fff;transition:opacity .55s ease,visibility .55s ease}
+#splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{width:min(440px,100%);text-align:center;animation:splashRise .7s ease both}
+.splash-logo{display:block;width:min(210px,58vw);aspect-ratio:1;object-fit:contain;margin:0 auto 22px;border-radius:28px;filter:drop-shadow(0 14px 28px #0005)}
+.splash-kicker{margin:0 0 8px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#b9d9ee;font-weight:800}
+.splash-title{margin:0;font-size:clamp(32px,7vw,48px);letter-spacing:-.045em;line-height:1.05}
+.splash-subtitle{margin:12px 0 25px;color:#d8e8f3;font-size:14px}
+.splash-progress{width:min(220px,70%);height:4px;margin:0 auto;overflow:hidden;background:#ffffff30;border-radius:99px}
+.splash-progress:after{content:"";display:block;height:100%;width:40%;border-radius:99px;background:#f5bd45;animation:splashLoad 1.2s ease-in-out infinite}
+.splash-footer{margin:23px 0 0;color:#a9c2d6;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+@keyframes splashLoad{0%{transform:translateX(-110%)}100%{transform:translateX(360%)}}
+@keyframes splashRise{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){#splash,.splash-inner{animation:none;transition:none}.splash-progress:after{animation:none;width:100%}}
+
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #1769c2;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #102a43;
+  transform: translateY(-2px);
+  text-decoration: underline;
+}
+
+.footer-icon {
+  font-size: 19px;
+}
+
+.footer-credit {
+  color: #718294;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    gap: 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="splash" role="status" aria-label="Loading DES iApps Hub">
+  <div class="splash-inner">
+    <img class="splash-logo" src="assets/des-iapps-icon.png" alt="DES iApps logo">
+    <p class="splash-kicker">Daplian Elementary School</p>
+    <h1 class="splash-title">DES iApps</h1>
+    <p class="splash-subtitle">School services, connected in one place.</p>
+    <div class="splash-progress" aria-hidden="true"></div>
+    <p class="splash-footer">Initializing school apps hub</p>
+  </div>
+</div>
+
+<div class="shell">
+<header><div class="header-inner">
+  <img class="school-logo" src="assets/des-school-logo.png" alt="Daplian Elementary School logo">
+  <div><p class="eyebrow">Daplian Elementary School</p><h1>iDES Apps Hub</h1><p class="subtitle">School services · One computer · One convenient home screen</p></div>
+</div></header>
+<main>
+  <div class="intro"><div><h2>Welcome to the iApps</h2><p>Select an application to begin. Use the browser's Back button to return here.</p></div><div class="kiosk"><span class="dot"></span>SCHOOL KIOSK</div></div>
+  <div class="section">Phase 1 · Core operations</div>
+  <div class="grid">
+    <article class="card" style="--accent:#1769c2"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iAttend.png" alt="iAttend logo"></div><div><h3 class="name">iAttend</h3><p class="desc">Student attendance, barcode scanning, daily attendance, and Visitor Pass.</p></div></div><div class="status ready">Functional</div><div class="bottom"><span class="meta">Blue · Attendance</span><a class="open" href="#" data-app="iAttend">Open app ↗</a></div></article>
+    <article class="card" style="--accent:#d51f2a"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iSupply.png" alt="iSupply logo"></div><div><h3 class="name">iSupply</h3><p class="desc">School inventory, available stocks, item requests, approval, and release.</p></div></div><div class="status building">Under development</div><div class="bottom"><span class="meta">Red · Inventory & supplies</span><a class="open" href="#" data-app="iSupply">Open app ↗</a></div></article>
+    <article class="card" style="--accent:#e87912"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iCSM.png" alt="iCSM logo"></div><div><h3 class="name">iCSM</h3><p class="desc">Client feedback questionnaires, satisfaction results, and reporting.</p></div></div><div class="status ready">Functional</div><div class="bottom"><span class="meta">Orange · Client feedback</span><a class="open" href="#" data-app="iCSM">Open app ↗</a></div></article>
+  </div>
+  <div class="section">Phase 2 · Office digitalization</div>
+  <div class="grid">
+    <article class="card" style="--accent:#7c3aed"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iDocs.png" alt="iDocs logo"></div><div><h3 class="name">iDocs</h3><p class="desc">Generate official school certificates and documents as PDFs for printing and signing.</p></div></div><div class="status">Planned</div><div class="bottom"><span class="meta">Purple · Document generation</span><button class="open disabled" disabled>Coming later</button></div></article>
+    <article class="card" style="--accent:#16803d"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iRecords.png" alt="iRecords logo"></div><div><h3 class="name">iRecords</h3><p class="desc">Search digital records and upload files to the school's Google Drive records section.</p></div></div><div class="status">Planned</div><div class="bottom"><span class="meta">Green · Digital records</span><button class="open disabled" disabled>Coming later</button></div></article>
+    <article class="card" style="--accent:#b8860b"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iProperties.png" alt="iProperties logo"></div><div><h3 class="name">iProperties</h3><p class="desc">School property, equipment, locations, condition, assignment, and history.</p></div></div><div class="status">Planned</div><div class="bottom"><span class="meta">Yellow · Property & assets</span><button class="open disabled" disabled>Coming later</button></div></article>
+  </div>
+  <div class="note"><strong>Ready to use:</strong> iAttend, iSupply, and iCSM are connected to their AppSheet apps. iDocs, iRecords, and iProperties will be developed soon. App access still depends on each user’s AppSheet permissions.</div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://bit.ly/desdabest"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Visit our school website">
+      <span class="footer-icon">🌐</span>
+      School Website
+    </a>
+
+    <a href="https://bit.ly/DES-FB"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Visit our school Facebook page">
+      <span class="footer-icon">📘</span>
+      Facebook Page
+    </a>
+  </div>
+
+  <div class="footer-credit">
+    Daplian Elementary School · iDES Apps Family
+  </div>
+</footer>
+
+</div>
+<script>
+
+const splash=document.getElementById("splash");
+window.addEventListener("load",()=>{setTimeout(()=>splash.classList.add("hidden"),1400);});
+
+/* Paste each app's AppSheet URL between the quotes. Example: "https://www.appsheet.com/start/your-app-id" */
+const APP_URLS={iAttend:"https://www.appsheet.com/start/ca77a2bb-66be-44f9-9b8d-820e287c48fd",iSupply:"https://www.appsheet.com/start/aaa20f2f-2ac6-4810-9c75-64707b12e826",iCSM:"https://www.appsheet.com/start/8694ddba-af4c-4c54-ac17-3bbab4b41e8a"};
+document.querySelectorAll("[data-app]").forEach(link=>{
+  const name=link.dataset.app, url=APP_URLS[name];
+  if(url && /^https:\/\/.+/i.test(url)){link.href=url;}
+  else{link.addEventListener("click",e=>{e.preventDefault();alert("The "+name+" link is not configured yet. Add its AppSheet URL in the APP_URLS section of index.html.");});}
+});
+</script>
+</body>
+</html>
