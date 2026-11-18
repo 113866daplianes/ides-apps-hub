@@ -89,11 +89,11 @@ footer{border-top:1px solid var(--line);padding:17px 20px;text-align:center;colo
   <div class="section">Internal Services</div>
   <div class="grid internal-grid">
     <article class="card" style="--accent:#1769c2"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iAttend.png" alt="iAttend logo"></div><div><h3 class="name">iAttend</h3><p class="desc">Student attendance, barcode scanning, daily attendance, and Visitor Pass.</p></div></div><div class="status ready">Functional</div><div class="bottom"><span class="meta">Blue · Attendance</span><a class="open" href="https://www.appsheet.com/start/ca77a2bb-66be-44f9-9b8d-820e287c48fd" target="_self">Open app ↗</a></div></article>
-    <article class="card" style="--accent:#d51f2a"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iSupply.png" alt="iSupply logo"></div><div><h3 class="name">iSupply</h3><p class="desc">School inventory, available stocks, item requests, approval, and release.</p></div></div><div class="status building">Under Development</div><div class="bottom"><span class="meta">Red · Inventory & supplies</span><a class="open" href="https://www.appsheet.com/start/aaa20f2f-2ac6-4810-9c75-64707b12e826" target="_self">Open app ↗</a></div></article>
+    <article class="card" style="--accent:#d51f2a"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iSupply.png" alt="iSupply logo"></div><div><h3 class="name">iSupply</h3><p class="desc">School inventory, available stocks, item requests, approval, and release.</p></div></div><div class="status ready">Functional</div><div class="bottom"><span class="meta">Red · Inventory & supplies</span><a class="open" href="https://113866daplianes.github.io/ides-apps-hub/" target="_self">Open app ↗</a></div></article>
     <article class="card" style="--accent:#16803d"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iRecords.png" alt="iRecords logo"></div><div><h3 class="name">iRecords</h3><p class="desc">Search digital records and upload files to the school's Google Drive records section.</p></div></div><div class="status">Coming Soon</div><div class="bottom"><span class="meta">Green · Digital records</span><button class="open disabled" disabled>Coming Soon</button></div></article>
     <article class="card" style="--accent:#b8860b"><div class="top"><div class="logo-wrap"><img class="app-logo" src="assets/iProperties.png" alt="iProperties logo"></div><div><h3 class="name">iProperties</h3><p class="desc">School property, equipment, locations, condition, assignment, and history.</p></div></div><div class="status">Coming Soon</div><div class="bottom"><span class="meta">Yellow · Property & assets</span><button class="open disabled" disabled>Coming Soon</button></div></article>
   </div>
-  <div class="note"><strong>Service status:</strong> iAttend, iDES, iCSM, and iDocs are functional. iSupply is under development, while iRecords and iProperties are coming soon. Access to AppSheet services remains subject to each app's permissions.</div>
+  <div class="note"><strong>Service status:</strong> iAttend, iDES, iCSM, and iDocs are functional. iSupply is fully migrated and functional. iRecords and iProperties are coming soon. Access to AppSheet-based services remains subject to each app's permissions.</div>
 </main>
 <footer><a href="https://bit.ly/desdabest" target="_self" style="display:inline-flex;align-items:center;gap:8px;color:#1769c2;font-weight:800;text-decoration:none;margin-bottom:8px">🌐 Visit us on Facebook! ↗</a><br>Daplian Elementary School · DES ICT Innovations</footer>
 </div>
@@ -102,8 +102,8 @@ footer{border-top:1px solid var(--line);padding:17px 20px;text-align:center;colo
 const splash=document.getElementById("splash");
 window.addEventListener("load",()=>{setTimeout(()=>splash.classList.add("hidden"),1400);});
 
-/* Paste each app's AppSheet URL between the quotes. Example: "https://www.appsheet.com/start/your-app-id" */
-const APP_URLS={iAttend:"https://www.appsheet.com/start/ca77a2bb-66be-44f9-9b8d-820e287c48fd",iSupply:"https://www.appsheet.com/start/aaa20f2f-2ac6-4810-9c75-64707b12e826",iCSM:"https://www.appsheet.com/start/8694ddba-af4c-4c54-ac17-3bbab4b41e8a"};
+/* App URLs for services that use configured direct links. */
+const APP_URLS={iAttend:"https://www.appsheet.com/start/ca77a2bb-66be-44f9-9b8d-820e287c48fd",iSupply:"https://113866daplianes.github.io/ides-apps-hub/",iCSM:"https://www.appsheet.com/start/8694ddba-af4c-4c54-ac17-3bbab4b41e8a"};
 document.querySelectorAll("[data-app]").forEach(link=>{
   const name=link.dataset.app, url=APP_URLS[name];
   if(url && /^https:\/\/.+/i.test(url)){link.href=url;}
