@@ -1,10 +1,10 @@
 {
-  "id": "./",
+  "id": "https://113866daplianes.github.io/ides-apps-hub/",
   "name": "DES ICT Innovations",
   "short_name": "DES iApps",
   "description": "Digital services and tools of Daplian Elementary School.",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "https://113866daplianes.github.io/ides-apps-hub/",
+  "scope": "https://113866daplianes.github.io/ides-apps-hub/",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#eaf4fb",

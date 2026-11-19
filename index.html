@@ -174,7 +174,7 @@ installBtn.addEventListener("click",async()=>{
 });
 window.addEventListener("appinstalled",()=>{installBtn.hidden=true;deferredPrompt=null;});
 if("serviceWorker" in navigator){
- window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(err=>console.warn("Service worker registration failed:",err)));
+ window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js",{scope:new URL("./",location.href).pathname}).catch(err=>console.warn("Service worker registration failed:",err)));
 }
 </script>
 </body>
