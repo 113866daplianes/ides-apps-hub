@@ -17,3 +17,7 @@ Required root files:
 
 ## Notes
 The hub interface and its local assets can load offline after the first successful visit. The linked apps still require their own connectivity and availability. Browser installation prompts depend on browser/platform support. GitHub Pages serves the site over HTTPS, which is required for service workers.
+
+
+## Visual theme update
+The Hub now uses a dark-blue Aero/glass theme inspired by the supplied iSupply screenshots. Blue is the dominant color; glossy layered panels, raised buttons, and high-contrast white text are used for readability. App identity accents remain visible in their labels/metadata.

@@ -115,6 +115,97 @@ footer a{display:inline-flex;align-items:center;gap:8px;color:#15527b;font-weigh
 }
 @media(max-width:360px){.bottom{align-items:flex-start;flex-direction:column}.open{width:100%}.meta{font-size:11px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}#splash{transition:none}.splash-progress:after{width:100%}}
+
+/* DES iApps Hub — blue Aero visual layer, inspired by the glossy iSupply interface */
+:root{
+ --navy:#153b59;--navy-deep:#071d31;--navy-mid:#1e5b83;
+ --sky:#dcefff;--ice:#f2f8ff;--gold:#f4c45e;--ink:#f6fbff;
+ --muted:#e0edf7;--line:rgba(207,231,247,.42);
+ --glass:rgba(255,255,255,.15);--shadow:0 16px 34px rgba(0,0,0,.28);
+}
+html,body{background:#081e32;color:#f5faff}
+body{
+ background:
+  radial-gradient(ellipse at 12% 0%,rgba(96,165,210,.38),transparent 36rem),
+  radial-gradient(ellipse at 92% 15%,rgba(41,111,158,.32),transparent 34rem),
+  linear-gradient(145deg,#0a263e 0%,#123d5c 48%,#071a2c 100%);
+ background-attachment:fixed;
+}
+.shell{background:linear-gradient(180deg,rgba(11,39,62,.30),rgba(3,18,31,.40))}
+.shell:before{width:520px;height:520px;right:-190px;top:230px;background:rgba(190,225,247,.07);border:1px solid rgba(224,244,255,.22);box-shadow:inset 0 0 70px rgba(255,255,255,.05)}
+.shell:after{width:380px;height:380px;left:-190px;bottom:15px;background:rgba(69,145,193,.12);border:1px solid rgba(224,244,255,.2)}
+header{
+ color:#fff;padding:25px clamp(16px,4vw,58px);
+ background:linear-gradient(115deg,#071c30 0%,#123e60 48%,#1c5b83 100%);
+ border-bottom:1px solid rgba(225,244,255,.42);
+ box-shadow:0 12px 30px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.45);
+}
+header:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.24),transparent 44%,rgba(0,0,0,.12))}
+header:after{opacity:.48;background:linear-gradient(120deg,transparent 15%,rgba(255,255,255,.22) 48%,transparent 72%)}
+.school-logo{border-radius:22px;border:2px solid rgba(255,255,255,.85);box-shadow:0 8px 22px #0008,inset 0 1px 0 #fff}
+.eyebrow{color:#d0edff}
+h1{text-shadow:0 2px 8px #00142699}
+.subtitle{color:#edf7ff}
+main{padding-top:30px}
+.intro{
+ color:#fff;border:1px solid rgba(231,246,255,.55);border-radius:19px;
+ background:linear-gradient(180deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.12) 34%,rgba(3,24,41,.55) 100%);
+ box-shadow:0 8px 20px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 0 rgba(0,0,0,.22);
+ backdrop-filter:blur(14px);
+}
+.intro h2{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.35)}
+.intro p{color:#e8f4fc}
+.kiosk,.install{
+ color:#123c5b;border:1px solid #e7f5ff;
+ background:linear-gradient(180deg,#fff 0%,#eaf6ff 45%,#bfd8e9 100%);
+ box-shadow:0 4px 0 rgba(3,24,41,.48),0 7px 13px rgba(0,0,0,.22),inset 0 1px 0 #fff;
+}
+.dot{background:#1aaf72;box-shadow:0 0 0 4px rgba(219,255,237,.65)}
+.section{color:#e9f6ff;text-shadow:0 2px 4px #001b30;letter-spacing:.14em}
+.section:after{height:2px;background:linear-gradient(90deg,rgba(193,226,247,.75),rgba(193,226,247,0))}
+.card{
+ background:linear-gradient(180deg,rgba(191,224,245,.52) 0%,rgba(53,112,151,.83) 25%,rgba(17,65,99,.96) 68%,rgba(7,34,55,.98) 100%);
+ border:1px solid rgba(222,243,255,.64);border-top:1px solid rgba(255,255,255,.88);
+ border-radius:19px;box-shadow:0 4px 0 rgba(0,0,0,.48),0 12px 25px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.55);
+}
+.card:before{background:linear-gradient(125deg,rgba(255,255,255,.30),transparent 42%)}
+.card:hover{transform:translateY(-4px);box-shadow:0 5px 0 rgba(0,0,0,.48),0 18px 32px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.68)}
+.logo-wrap{background:linear-gradient(145deg,#fff,#dcecf7);border:1px solid #e8f6ff;box-shadow:0 4px 10px #001a2d66,inset 0 1px 0 #fff}
+.name{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.38)}
+.desc{color:#f0f7fc;text-shadow:0 1px 2px rgba(0,0,0,.22)}
+.status{color:#e2f0fa}
+.status:before{background:#b7cbd9;box-shadow:0 0 0 3px rgba(230,244,252,.17)}
+.ready:before{background:#47df9a;box-shadow:0 0 0 3px rgba(71,223,154,.22)}
+.building:before{background:#ffd16b;box-shadow:0 0 0 3px rgba(255,209,107,.2)}
+.meta{color:#d8eaf6}
+.open{
+ border:1px solid rgba(255,255,255,.75);border-radius:10px;
+ background:linear-gradient(180deg,#f9fdff 0%,#d8edfb 38%,#8bbbd9 100%);
+ color:#103b5a;text-shadow:0 1px 0 #fff;font-weight:900;
+ box-shadow:0 3px 0 rgba(1,22,37,.62),0 6px 12px rgba(0,0,0,.26),inset 0 1px 0 #fff;
+}
+.open:hover{filter:brightness(1.06);box-shadow:0 4px 0 rgba(1,22,37,.62),0 9px 15px rgba(0,0,0,.32),inset 0 1px 0 #fff}
+.open:focus-visible,.install:focus-visible,a:focus-visible{outline:3px solid #ffd36e;outline-offset:3px}
+.disabled{background:linear-gradient(#dce7ef,#aebfcb);color:#40586b;text-shadow:0 1px #fff;border-color:#eaf5fc;box-shadow:0 3px 0 rgba(1,22,37,.42)}
+.note{
+ color:#f1f8fd;background:linear-gradient(180deg,rgba(183,218,240,.26),rgba(6,31,51,.72));
+ border:1px solid rgba(218,240,253,.48);border-left:5px solid #f4c45e;
+ box-shadow:0 7px 18px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.28)
+}
+.note strong{color:#fff}
+footer{color:#d9eaf5;background:linear-gradient(180deg,rgba(4,23,39,.72),rgba(3,17,29,.94));border-top:1px solid rgba(211,235,250,.35)}
+footer a{color:#a9dcfb;text-shadow:0 1px 3px #001a2b}
+#splash{background:radial-gradient(circle at 50% 25%,#347aa7 0%,#153b59 54%,#06192a 100%)}
+.splash-kicker{color:#d5efff}
+.splash-subtitle{color:#edf7ff}
+.splash-footer{color:#c2deef}
+@media(max-width:640px){
+ header{padding:18px 15px 20px}
+ .intro{padding:16px}
+ .card{min-height:0}
+ .bottom{align-items:center}
+}
+
 </style>
 </head>
 <body>
