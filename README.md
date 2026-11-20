@@ -21,3 +21,6 @@ The hub interface and its local assets can load offline after the first successf
 
 ## Visual theme update
 The Hub now uses a dark-blue Aero/glass theme inspired by the supplied iSupply screenshots. Blue is the dominant color; glossy layered panels, raised buttons, and high-contrast white text are used for readability. App identity accents remain visible in their labels/metadata.
+
+## Basic interface restrictions
+The Hub suppresses the page context menu, common F12/DevTools keyboard shortcuts, view-source/save-page shortcuts, and image dragging. These are casual-access deterrents only. They cannot disable browser developer tools, prevent inspection through browser menus or remote debugging, or protect backend endpoints/secrets. Enforce all authorization, validation, and data access rules in Apps Script/server-side code; never place credentials or privileged API keys in frontend files.

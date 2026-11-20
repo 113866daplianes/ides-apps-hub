@@ -268,5 +268,30 @@ if("serviceWorker" in navigator){
  window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js",{scope:new URL("./",location.href).pathname}).catch(err=>console.warn("Service worker registration failed:",err)));
 }
 </script>
+<script>
+
+/* Basic UI-level deterrents. These do NOT secure server-side resources. */
+(function protectInterface(){
+  document.addEventListener("contextmenu", event => event.preventDefault());
+
+  document.addEventListener("keydown", event => {
+    const key = (event.key || "").toLowerCase();
+    const ctrlOrMeta = event.ctrlKey || event.metaKey;
+    const blocked =
+      event.key === "F12" ||
+      (ctrlOrMeta && event.shiftKey && ["i","j","c"].includes(key)) ||
+      (ctrlOrMeta && ["u","s"].includes(key));
+    if (blocked) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+
+  document.addEventListener("dragstart", event => {
+    if (event.target && event.target.tagName === "IMG") event.preventDefault();
+  });
+})();
+
+</script>
 </body>
 </html>
