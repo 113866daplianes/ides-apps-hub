@@ -24,3 +24,12 @@ The Hub now uses a dark-blue Aero/glass theme inspired by the supplied iSupply s
 
 ## Basic interface restrictions
 The Hub suppresses the page context menu, common F12/DevTools keyboard shortcuts, view-source/save-page shortcuts, and image dragging. These are casual-access deterrents only. They cannot disable browser developer tools, prevent inspection through browser menus or remote debugging, or protect backend endpoints/secrets. Enforce all authorization, validation, and data access rules in Apps Script/server-side code; never place credentials or privileged API keys in frontend files.
+
+
+## iDES - ALAM directory update
+- Display name: `iDES - ALAM`.
+- Link: https://113866daplianes.github.io/ides-alam/
+- Description: school-exclusive, Facebook-inspired social app and usable demo.
+- Status: yellow `Demo App Available`.
+- Action: `Open app`.
+- Hub service-worker shell cache version incremented to v4.

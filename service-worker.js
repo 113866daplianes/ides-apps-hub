@@ -1,6 +1,6 @@
 // DES iApps Hub — isolated PWA worker.
 // This worker may only cache URLs inside /ides-apps-hub/ and only manages its own cache namespace.
-const CACHE_NAME = "des-iapps-hub-shell-v3";
+const CACHE_NAME = "des-iapps-hub-shell-v4";
 const CACHE_PREFIX = "des-iapps-hub-";
 const APP_SCOPE = new URL(self.registration.scope);
 const APP_SHELL = [
